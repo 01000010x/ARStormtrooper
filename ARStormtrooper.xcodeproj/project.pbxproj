@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D275D201FFF887400B119E3 /* DataHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D275D1F1FFF887400B119E3 /* DataHelpers.swift */; };
+		1D41EC97200012A6000D72C0 /* GestureHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D41EC96200012A6000D72C0 /* GestureHelper.swift */; };
 		1DE038F11FDD4D83003A2FF7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE038F01FDD4D83003A2FF7 /* AppDelegate.swift */; };
-		1DE038F31FDD4D83003A2FF7 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 1DE038F21FDD4D83003A2FF7 /* art.scnassets */; };
+		1DE038F31FDD4D83003A2FF7 /* animations.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 1DE038F21FDD4D83003A2FF7 /* animations.scnassets */; };
 		1DE038F51FDD4D83003A2FF7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE038F41FDD4D83003A2FF7 /* ViewController.swift */; };
 		1DE038F81FDD4D83003A2FF7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DE038F61FDD4D83003A2FF7 /* Main.storyboard */; };
 		1DE038FA1FDD4D83003A2FF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1DE038F91FDD4D83003A2FF7 /* Assets.xcassets */; };
@@ -16,9 +18,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1DE038ED1FDD4D83003A2FF7 /* 3DNaruto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 3DNaruto.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D275D1F1FFF887400B119E3 /* DataHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataHelpers.swift; sourceTree = "<group>"; };
+		1D41EC96200012A6000D72C0 /* GestureHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureHelper.swift; sourceTree = "<group>"; };
+		1DE038ED1FDD4D83003A2FF7 /* ARStormtrooper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARStormtrooper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DE038F01FDD4D83003A2FF7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1DE038F21FDD4D83003A2FF7 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
+		1DE038F21FDD4D83003A2FF7 /* animations.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = animations.scnassets; sourceTree = "<group>"; };
 		1DE038F41FDD4D83003A2FF7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1DE038F71FDD4D83003A2FF7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1DE038F91FDD4D83003A2FF7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -37,10 +41,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D275D211FFF888400B119E3 /* Swift Files */ = {
+			isa = PBXGroup;
+			children = (
+				1DE038F01FDD4D83003A2FF7 /* AppDelegate.swift */,
+				1D275D1F1FFF887400B119E3 /* DataHelpers.swift */,
+				1DE038F41FDD4D83003A2FF7 /* ViewController.swift */,
+				1D41EC96200012A6000D72C0 /* GestureHelper.swift */,
+			);
+			path = "Swift Files";
+			sourceTree = "<group>";
+		};
+		1D275D221FFF888F00B119E3 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				1DE038F21FDD4D83003A2FF7 /* animations.scnassets */,
+				1DE038F91FDD4D83003A2FF7 /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
 		1DE038E41FDD4D83003A2FF7 = {
 			isa = PBXGroup;
 			children = (
-				1DE038EF1FDD4D83003A2FF7 /* 3DNaruto */,
+				1DE038EF1FDD4D83003A2FF7 /* ARStormTrooper */,
 				1DE038EE1FDD4D83003A2FF7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -48,31 +72,29 @@
 		1DE038EE1FDD4D83003A2FF7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1DE038ED1FDD4D83003A2FF7 /* 3DNaruto.app */,
+				1DE038ED1FDD4D83003A2FF7 /* ARStormtrooper.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		1DE038EF1FDD4D83003A2FF7 /* 3DNaruto */ = {
+		1DE038EF1FDD4D83003A2FF7 /* ARStormTrooper */ = {
 			isa = PBXGroup;
 			children = (
-				1DE038F01FDD4D83003A2FF7 /* AppDelegate.swift */,
-				1DE038F21FDD4D83003A2FF7 /* art.scnassets */,
-				1DE038F41FDD4D83003A2FF7 /* ViewController.swift */,
+				1D275D221FFF888F00B119E3 /* Assets */,
+				1D275D211FFF888400B119E3 /* Swift Files */,
 				1DE038F61FDD4D83003A2FF7 /* Main.storyboard */,
-				1DE038F91FDD4D83003A2FF7 /* Assets.xcassets */,
 				1DE038FB1FDD4D83003A2FF7 /* LaunchScreen.storyboard */,
 				1DE038FE1FDD4D83003A2FF7 /* Info.plist */,
 			);
-			path = 3DNaruto;
+			path = ARStormTrooper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1DE038EC1FDD4D83003A2FF7 /* 3DNaruto */ = {
+		1DE038EC1FDD4D83003A2FF7 /* ARStormtrooper */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1DE039011FDD4D83003A2FF7 /* Build configuration list for PBXNativeTarget "3DNaruto" */;
+			buildConfigurationList = 1DE039011FDD4D83003A2FF7 /* Build configuration list for PBXNativeTarget "ARStormtrooper" */;
 			buildPhases = (
 				1DE038E91FDD4D83003A2FF7 /* Sources */,
 				1DE038EA1FDD4D83003A2FF7 /* Frameworks */,
@@ -82,9 +104,9 @@
 			);
 			dependencies = (
 			);
-			name = 3DNaruto;
+			name = ARStormtrooper;
 			productName = 3DNaruto;
-			productReference = 1DE038ED1FDD4D83003A2FF7 /* 3DNaruto.app */;
+			productReference = 1DE038ED1FDD4D83003A2FF7 /* ARStormtrooper.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -103,7 +125,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 1DE038E81FDD4D83003A2FF7 /* Build configuration list for PBXProject "3DNaruto" */;
+			buildConfigurationList = 1DE038E81FDD4D83003A2FF7 /* Build configuration list for PBXProject "ARStormtrooper" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -116,7 +138,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1DE038EC1FDD4D83003A2FF7 /* 3DNaruto */,
+				1DE038EC1FDD4D83003A2FF7 /* ARStormtrooper */,
 			);
 		};
 /* End PBXProject section */
@@ -126,7 +148,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1DE038F31FDD4D83003A2FF7 /* art.scnassets in Resources */,
+				1DE038F31FDD4D83003A2FF7 /* animations.scnassets in Resources */,
 				1DE038FD1FDD4D83003A2FF7 /* LaunchScreen.storyboard in Resources */,
 				1DE038FA1FDD4D83003A2FF7 /* Assets.xcassets in Resources */,
 				1DE038F81FDD4D83003A2FF7 /* Main.storyboard in Resources */,
@@ -141,6 +163,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1DE038F51FDD4D83003A2FF7 /* ViewController.swift in Sources */,
+				1D41EC97200012A6000D72C0 /* GestureHelper.swift in Sources */,
+				1D275D201FFF887400B119E3 /* DataHelpers.swift in Sources */,
 				1DE038F11FDD4D83003A2FF7 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -280,9 +304,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 847G697V87;
-				INFOPLIST_FILE = 3DNaruto/Info.plist;
+				INFOPLIST_FILE = ARStormTrooper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.fadc.-DNaruto";
+				PRODUCT_BUNDLE_IDENTIFIER = com.fadc.ARStormTrooper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -295,9 +319,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 847G697V87;
-				INFOPLIST_FILE = 3DNaruto/Info.plist;
+				INFOPLIST_FILE = ARStormTrooper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.fadc.-DNaruto";
+				PRODUCT_BUNDLE_IDENTIFIER = com.fadc.ARStormTrooper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -307,7 +331,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1DE038E81FDD4D83003A2FF7 /* Build configuration list for PBXProject "3DNaruto" */ = {
+		1DE038E81FDD4D83003A2FF7 /* Build configuration list for PBXProject "ARStormtrooper" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1DE038FF1FDD4D83003A2FF7 /* Debug */,
@@ -316,7 +340,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1DE039011FDD4D83003A2FF7 /* Build configuration list for PBXNativeTarget "3DNaruto" */ = {
+		1DE039011FDD4D83003A2FF7 /* Build configuration list for PBXNativeTarget "ARStormtrooper" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1DE039021FDD4D83003A2FF7 /* Debug */,

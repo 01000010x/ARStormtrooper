@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  3DNaruto
+//  ARStormTrooper
 //
 //  Created by Baptiste Leguey on 10/12/2017.
 //  Copyright © 2017 Baptiste Leguey. All rights reserved.
