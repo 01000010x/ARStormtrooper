@@ -92,9 +92,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1DE038EC1FDD4D83003A2FF7 /* ARStormtrooper */ = {
+		1DE038EC1FDD4D83003A2FF7 /* ARtrooper */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1DE039011FDD4D83003A2FF7 /* Build configuration list for PBXNativeTarget "ARStormtrooper" */;
+			buildConfigurationList = 1DE039011FDD4D83003A2FF7 /* Build configuration list for PBXNativeTarget "ARtrooper" */;
 			buildPhases = (
 				1DE038E91FDD4D83003A2FF7 /* Sources */,
 				1DE038EA1FDD4D83003A2FF7 /* Frameworks */,
@@ -104,7 +104,7 @@
 			);
 			dependencies = (
 			);
-			name = ARStormtrooper;
+			name = ARtrooper;
 			productName = 3DNaruto;
 			productReference = 1DE038ED1FDD4D83003A2FF7 /* ARStormtrooper.app */;
 			productType = "com.apple.product-type.application";
@@ -125,7 +125,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 1DE038E81FDD4D83003A2FF7 /* Build configuration list for PBXProject "ARStormtrooper" */;
+			buildConfigurationList = 1DE038E81FDD4D83003A2FF7 /* Build configuration list for PBXProject "ARtrooper" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -138,7 +138,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1DE038EC1FDD4D83003A2FF7 /* ARStormtrooper */,
+				1DE038EC1FDD4D83003A2FF7 /* ARtrooper */,
 			);
 		};
 /* End PBXProject section */
@@ -307,7 +307,7 @@
 				DEVELOPMENT_TEAM = 847G697V87;
 				INFOPLIST_FILE = ARStormTrooper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.fadc.ARStormTrooper;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fadc.ARTrooper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
@@ -324,7 +324,7 @@
 				DEVELOPMENT_TEAM = 847G697V87;
 				INFOPLIST_FILE = ARStormTrooper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.fadc.ARStormTrooper;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fadc.ARTrooper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
@@ -335,7 +335,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1DE038E81FDD4D83003A2FF7 /* Build configuration list for PBXProject "ARStormtrooper" */ = {
+		1DE038E81FDD4D83003A2FF7 /* Build configuration list for PBXProject "ARtrooper" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1DE038FF1FDD4D83003A2FF7 /* Debug */,
@@ -344,7 +344,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1DE039011FDD4D83003A2FF7 /* Build configuration list for PBXNativeTarget "ARStormtrooper" */ = {
+		1DE039011FDD4D83003A2FF7 /* Build configuration list for PBXNativeTarget "ARtrooper" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1DE039021FDD4D83003A2FF7 /* Debug */,
