@@ -9,6 +9,8 @@
 import UIKit
 import SceneKit
 import ARKit
+import Patience
+import JHSpinner
 
 class ViewController: UIViewController {
 
@@ -28,6 +30,7 @@ class ViewController: UIViewController {
     var recordedCameraPosition = SCNVector3(0, 0, 0)
     var headTapCount = 0
     var torsoTapCount = 0
+    var planeNode = SCNNode()
 
     // MARK: Lifecycle
 
@@ -57,6 +60,9 @@ class ViewController: UIViewController {
         let slideGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handleSlide))
         sceneView.addGestureRecognizer(tapGestureRecognizer)
         sceneView.addGestureRecognizer(slideGestureRecognizer)
+
+        // TODO: Activate spinner
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -88,13 +94,45 @@ class ViewController: UIViewController {
 
 extension ViewController: ARSCNViewDelegate {
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
-        guard anchor is ARPlaneAnchor else { return }
-        DispatchQueue.main.async {
-            self.planeDetectedLabel.isHidden = false
-        }
+        if !isCharacterPlaced {
+            guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-            self.planeDetectedLabel.isHidden = true
+            let width = CGFloat(planeAnchor.extent.x)
+            let height = CGFloat(planeAnchor.extent.z)
+            let plane = SCNPlane(width: width, height: height)
+
+            plane.materials.first?.diffuse.contents = UIColor.green
+
+            planeNode = SCNNode(geometry: plane)
+
+            let x = CGFloat(planeAnchor.center.x)
+            let y = CGFloat(planeAnchor.center.y)
+            let z = CGFloat(planeAnchor.center.z)
+            planeNode.position = SCNVector3(x, y, z)
+            planeNode.eulerAngles.x = -.pi/2
+
+            node.addChildNode(planeNode)
+
+            // TODO: Deactivate spinner
+        }
+    }
+
+    func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
+        if !isCharacterPlaced {
+            guard let planeAnchor = anchor as? ARPlaneAnchor,
+                let planeNode = node.childNodes.first,
+                let plane = planeNode.geometry as? SCNPlane
+                else { return }
+
+            let width = CGFloat(planeAnchor.extent.x)
+            let height = CGFloat(planeAnchor.extent.z)
+            plane.width = width
+            plane.height = height
+
+            let x = CGFloat(planeAnchor.center.x)
+            let y = CGFloat(planeAnchor.center.y)
+            let z = CGFloat(planeAnchor.center.z)
+            planeNode.position = SCNVector3(x, y, z)
         }
     }
 
@@ -305,6 +343,8 @@ extension ViewController {
             recordCameraPosition()
             let positionOfPlane = getPlanePosition(withHitResult: hitTestResult)
             loadAnimations(atPosition: positionOfPlane)
+
+            planeNode.removeFromParentNode()
         }
     }
 
