@@ -13,7 +13,7 @@
         <!--View Controller-->
         <scene sceneID="tXr-a1-R10">
             <objects>
-                <viewController id="BV1-FR-VrT" customClass="ViewController" customModule="_DNaruto" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BV1-FR-VrT" customClass="ViewController" customModule="ARStormtrooper" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8rI-Yx-7gv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -21,17 +21,26 @@
                             <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Mp-a0-Oin">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                             </arscnView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PLANE DETECTED !" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UtZ-2J-uPs">
-                                <rect key="frame" x="47.5" y="50" width="281" height="37"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="31"/>
-                                <nil key="textColor"/>
+                            <activityIndicatorView opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Kas-GA-7S8">
+                                <rect key="frame" x="167.5" y="314" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="bYS-PI-68E"/>
+                                    <constraint firstAttribute="width" constant="40" id="dUZ-NU-OmU"/>
+                                </constraints>
+                            </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Looking for horizontal surfaces" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UtZ-2J-uPs">
+                                <rect key="frame" x="46.5" y="364" width="283" height="23"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="xVR-87-k49" firstAttribute="trailing" secondItem="6Mp-a0-Oin" secondAttribute="trailing" id="6yM-gn-bma"/>
-                            <constraint firstItem="UtZ-2J-uPs" firstAttribute="top" secondItem="xVR-87-k49" secondAttribute="top" constant="30" id="aed-bk-MIj"/>
+                            <constraint firstItem="UtZ-2J-uPs" firstAttribute="top" secondItem="Kas-GA-7S8" secondAttribute="bottom" constant="10" id="DiM-n9-oys"/>
+                            <constraint firstItem="Kas-GA-7S8" firstAttribute="centerY" secondItem="8rI-Yx-7gv" secondAttribute="centerY" id="VpT-W6-HLI"/>
+                            <constraint firstItem="Kas-GA-7S8" firstAttribute="centerX" secondItem="8rI-Yx-7gv" secondAttribute="centerX" id="XJd-M4-nVg"/>
                             <constraint firstItem="6Mp-a0-Oin" firstAttribute="leading" secondItem="xVR-87-k49" secondAttribute="leading" id="dpY-ez-5Fn"/>
                             <constraint firstItem="xVR-87-k49" firstAttribute="bottom" secondItem="6Mp-a0-Oin" secondAttribute="bottom" id="iKp-Hr-cLi"/>
                             <constraint firstItem="UtZ-2J-uPs" firstAttribute="centerX" secondItem="8rI-Yx-7gv" secondAttribute="centerX" id="pfG-GG-UtB"/>
@@ -42,6 +51,7 @@
                     <connections>
                         <outlet property="planeDetectedLabel" destination="UtZ-2J-uPs" id="234-6D-p32"/>
                         <outlet property="sceneView" destination="6Mp-a0-Oin" id="O8Z-NL-fKC"/>
+                        <outlet property="spinner" destination="Kas-GA-7S8" id="Dl3-hI-oMO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>

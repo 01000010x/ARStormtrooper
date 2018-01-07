@@ -9,8 +9,6 @@
 import UIKit
 import SceneKit
 import ARKit
-import Patience
-import JHSpinner
 
 class ViewController: UIViewController {
 
@@ -18,7 +16,8 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var planeDetectedLabel: UILabel!
     @IBOutlet var sceneView: ARSCNView!
-
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
+    
     // MARK: Properties
 
     var animations: [String: CAAnimation] = [:]
@@ -31,6 +30,8 @@ class ViewController: UIViewController {
     var headTapCount = 0
     var torsoTapCount = 0
     var planeNode = SCNNode()
+    var scoreLabel: SKLabelNode!
+    var tapMeLabel: SCNText!
 
     // MARK: Lifecycle
 
@@ -39,30 +40,23 @@ class ViewController: UIViewController {
 
         sceneView.delegate = self
 
-        // Hide plane detected label until a plane is detected
-        planeDetectedLabel.isHidden = true
-
         // Show statistics such as fps and timing information
-        sceneView.showsStatistics = true
+        //sceneView.showsStatistics = true
         
         // Create a new scene
         let scene = SCNScene()
         
         // Set the scene to the view
         sceneView.scene = scene
-        sceneView.autoenablesDefaultLighting = true
         sceneView.automaticallyUpdatesLighting = true
 
-        sceneView.debugOptions = [ARSCNDebugOptions.showWorldOrigin, ARSCNDebugOptions.showFeaturePoints]
+        //sceneView.debugOptions = [ARSCNDebugOptions.showWorldOrigin, ARSCNDebugOptions.showFeaturePoints]
 
         // Add a tap gesture recognizer to place a character
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap))
         let slideGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handleSlide))
         sceneView.addGestureRecognizer(tapGestureRecognizer)
         sceneView.addGestureRecognizer(slideGestureRecognizer)
-
-        // TODO: Activate spinner
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -94,45 +88,53 @@ class ViewController: UIViewController {
 
 extension ViewController: ARSCNViewDelegate {
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
-        if !isCharacterPlaced {
-            guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
+        DispatchQueue.main.async {
+            if !self.isCharacterPlaced {
+                guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
 
-            let width = CGFloat(planeAnchor.extent.x)
-            let height = CGFloat(planeAnchor.extent.z)
-            let plane = SCNPlane(width: width, height: height)
+                let width = CGFloat(planeAnchor.extent.x)
+                let height = CGFloat(planeAnchor.extent.z)
+                let plane = SCNPlane(width: width, height: height)
 
-            plane.materials.first?.diffuse.contents = UIColor.green
+                plane.materials.first?.diffuse.contents = #imageLiteral(resourceName: "TextureTap")
+                plane.materials.first?.transparency = 0.8
 
-            planeNode = SCNNode(geometry: plane)
+                self.planeNode = SCNNode(geometry: plane)
 
-            let x = CGFloat(planeAnchor.center.x)
-            let y = CGFloat(planeAnchor.center.y)
-            let z = CGFloat(planeAnchor.center.z)
-            planeNode.position = SCNVector3(x, y, z)
-            planeNode.eulerAngles.x = -.pi/2
+                let x = CGFloat(planeAnchor.center.x)
+                let y = CGFloat(planeAnchor.center.y)
+                let z = CGFloat(planeAnchor.center.z)
 
-            node.addChildNode(planeNode)
+                self.planeNode.position = SCNVector3(x, y, z)
+                self.planeNode.eulerAngles.x = -.pi/2
 
-            // TODO: Deactivate spinner
+                node.addChildNode(self.planeNode)
+
+                self.hideLoader()
+            }
         }
     }
 
     func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
-        if !isCharacterPlaced {
-            guard let planeAnchor = anchor as? ARPlaneAnchor,
-                let planeNode = node.childNodes.first,
-                let plane = planeNode.geometry as? SCNPlane
-                else { return }
+       DispatchQueue.main.async {
+           if !self.isCharacterPlaced {
+                guard let planeAnchor = anchor as? ARPlaneAnchor,
+                    let planeNode = node.childNodes.first,
+                    let plane = planeNode.geometry as? SCNPlane
+                    else { return }
 
-            let width = CGFloat(planeAnchor.extent.x)
-            let height = CGFloat(planeAnchor.extent.z)
-            plane.width = width
-            plane.height = height
+                let width = CGFloat(planeAnchor.extent.x)
+                let height = CGFloat(planeAnchor.extent.z)
+                plane.width = width
+                plane.height = height
 
-            let x = CGFloat(planeAnchor.center.x)
-            let y = CGFloat(planeAnchor.center.y)
-            let z = CGFloat(planeAnchor.center.z)
-            planeNode.position = SCNVector3(x, y, z)
+                let x = CGFloat(planeAnchor.center.x)
+                let y = CGFloat(planeAnchor.center.y)
+                let z = CGFloat(planeAnchor.center.z)
+                planeNode.position = SCNVector3(x, y, z)
+
+                print("update")
+           }
         }
     }
 
@@ -475,6 +477,18 @@ extension ViewController: CAAnimationDelegate {
 
     func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
         setAllGesturesStatus(onView: sceneView, withValue: true)
+    }
+}
+
+// MARK: Display Helpers
+
+extension ViewController {
+    func hideLoader() {
+        print("hideLoader")
+        DispatchQueue.main.async {
+            self.planeDetectedLabel.isHidden = true
+            self.spinner.stopAnimating()
+        }
     }
 }
 
