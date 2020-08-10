@@ -66,6 +66,7 @@ class ViewController: UIViewController {
         let configuration = ARWorldTrackingConfiguration()
         configuration.planeDetection = .horizontal
         configuration.isLightEstimationEnabled = true
+        sceneView.autoenablesDefaultLighting = true
 
         // Run the view's session
         sceneView.session.run(configuration)
